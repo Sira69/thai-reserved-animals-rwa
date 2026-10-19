@@ -1,0 +1,26 @@
+{
+  "name": "thai-reserved-animals-node",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "npm install --prefix client",
+    "dev": "npm run dev --prefix client",
+    "start": "npm run preview --prefix client",
+    "build": "npm run build --prefix client",
+    "preview": "npm run preview --prefix client",
+    "test": "npm test --prefix client"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "firebase": "^12.19.0",
+    "multer": "^2.3.0",
+    "papaparse": "^5.5.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

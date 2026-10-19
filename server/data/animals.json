@@ -1,0 +1,212 @@
+[
+  {
+    "id": "A001",
+    "name_th": "กระซู่",
+    "name_en": "Sumatran Rhinoceros",
+    "scientific_name": "Dicerorhinus sumatrensis",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าดิบชื้นและป่าภูเขา",
+    "description": "แรดขนาดเล็กที่สุดในบรรดาแรดที่ยังมีชีวิต มีขนตามลำตัว และกินพืชเป็นหลัก",
+    "image_url": ""
+  },
+  {
+    "id": "A002",
+    "name_th": "กวางผา",
+    "name_en": "Chinese Serow",
+    "scientific_name": "Naemorhedus griseus",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ภูเขาสูง หน้าผา และป่าบริเวณภูเขา",
+    "description": "สัตว์กีบคู่ขนาดเล็ก ลักษณะคล้ายแพะ อาศัยตามพื้นที่ลาดชันและหน้าผา",
+    "image_url": ""
+  },
+  {
+    "id": "A003",
+    "name_th": "กูปรีหรือโคไพร",
+    "name_en": "Kouprey",
+    "scientific_name": "Bos sauveli",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าโปร่งและทุ่งหญ้า",
+    "description": "วัวป่าขนาดใหญ่ที่มีความสำคัญทางการอนุรักษ์ และเชื่อกันว่าอาจสูญพันธุ์ไปจากธรรมชาติแล้ว",
+    "image_url": ""
+  },
+  {
+    "id": "A004",
+    "name_th": "เก้งหม้อ",
+    "name_en": "Fea's Muntjac",
+    "scientific_name": "Muntiacus feae",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าดิบชื้นและป่าภูเขา",
+    "description": "เก้งขนาดเล็ก พบในพื้นที่ป่าภูเขาทางตะวันตกและภาคใต้ของไทย",
+    "image_url": ""
+  },
+  {
+    "id": "A005",
+    "name_th": "ควายป่า",
+    "name_en": "Wild Water Buffalo",
+    "scientific_name": "Bubalus arnee",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าราบ ทุ่งหญ้า และพื้นที่ใกล้แหล่งน้ำ",
+    "description": "ควายป่าขนาดใหญ่ มีเขากว้างและแข็งแรง ปัจจุบันประชากรในไทยเหลืออยู่ในพื้นที่จำกัด",
+    "image_url": ""
+  },
+  {
+    "id": "A006",
+    "name_th": "พะยูน",
+    "name_en": "Dugong",
+    "scientific_name": "Dugong dugon",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ทะเลชายฝั่งน้ำตื้นและแหล่งหญ้าทะเล",
+    "description": "สัตว์เลี้ยงลูกด้วยนมในทะเลที่กินหญ้าทะเลเป็นอาหาร จึงเป็นตัวชี้วัดความสมบูรณ์ของระบบนิเวศชายฝั่ง",
+    "image_url": ""
+  },
+  {
+    "id": "A007",
+    "name_th": "แมวลายหินอ่อน",
+    "name_en": "Marbled Cat",
+    "scientific_name": "Pardofelis marmorata",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าดิบชื้นและป่าภูเขา",
+    "description": "แมวป่าขนาดเล็ก มีลวดลายคล้ายหินอ่อนและมีหางยาว ชอบอาศัยบนต้นไม้",
+    "image_url": ""
+  },
+  {
+    "id": "A008",
+    "name_th": "แรด",
+    "name_en": "Javan Rhinoceros",
+    "scientific_name": "Rhinoceros sondaicus",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าดิบชื้นและป่าชายฝั่ง",
+    "description": "แรดขนาดใหญ่ มีนอเดียว เป็นสัตว์ป่าที่หายากมากและสูญพันธุ์ไปจากธรรมชาติในประเทศไทยแล้ว",
+    "image_url": ""
+  },
+  {
+    "id": "A009",
+    "name_th": "ละองหรือละมั่ง",
+    "name_en": "Eld's Deer",
+    "scientific_name": "Rucervus eldii",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ทุ่งหญ้า ป่าโปร่ง และพื้นที่ชุ่มน้ำ",
+    "description": "กวางขนาดใหญ่ ตัวผู้มีเขาที่แตกแขนงเป็นลักษณะเด่น",
+    "image_url": ""
+  },
+  {
+    "id": "A010",
+    "name_th": "เลียงผา",
+    "name_en": "Mainland Serow",
+    "scientific_name": "Capricornis sumatraensis",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ภูเขาสูง หน้าผา และพื้นที่ลาดชัน",
+    "description": "สัตว์กีบคู่ที่มีความสามารถในการปีนป่ายหน้าผาได้ดี มีเขาสั้นสีดำ",
+    "image_url": ""
+  },
+  {
+    "id": "A011",
+    "name_th": "วาฬบรูด้า",
+    "name_en": "Bryde's Whale",
+    "scientific_name": "Balaenoptera edeni",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ทะเลชายฝั่งและทะเลเปิด",
+    "description": "วาฬขนาดใหญ่ที่พบในน่านน้ำไทย ลักษณะเด่นคือมีสันบนหัว 3 สัน",
+    "image_url": ""
+  },
+  {
+    "id": "A012",
+    "name_th": "วาฬโอมูระ",
+    "name_en": "Omura's Whale",
+    "scientific_name": "Balaenoptera omurai",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ทะเลเขตร้อนและกึ่งเขตร้อน",
+    "description": "วาฬขนาดกลางที่มีลักษณะคล้ายวาฬบรูด้า แต่มีขนาดเล็กกว่าและมีลักษณะทางกายภาพเฉพาะตัว",
+    "image_url": ""
+  },
+  {
+    "id": "A013",
+    "name_th": "วาฬสีน้ำเงิน",
+    "name_en": "Blue Whale",
+    "scientific_name": "Balaenoptera musculus",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "มหาสมุทรและทะเลเปิด",
+    "description": "สัตว์ที่มีขนาดใหญ่ที่สุดในโลก กินสัตว์ขนาดเล็กในทะเล เช่น เคยและแพลงก์ตอนสัตว์",
+    "image_url": ""
+  },
+  {
+    "id": "A014",
+    "name_th": "สมเสร็จ",
+    "name_en": "Malayan Tapir",
+    "scientific_name": "Tapirus indicus",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ป่าดิบชื้นและพื้นที่ใกล้แหล่งน้ำ",
+    "description": "สัตว์เลี้ยงลูกด้วยนมรูปร่างเด่น มีสีดำสลับขาว และมีจมูกยื่นคล้ายงวงสั้น",
+    "image_url": ""
+  },
+  {
+    "id": "A015",
+    "name_th": "สมัน",
+    "name_en": "Schomburgk's Deer",
+    "scientific_name": "Rucervus schomburgki",
+    "category": "สัตว์เลี้ยงลูกด้วยนม",
+    "habitat": "ทุ่งหญ้าและพื้นที่ชุ่มน้ำ",
+    "description": "กวางพื้นเมืองของไทยที่สูญพันธุ์ไปแล้ว ลักษณะเด่นคือเขาของตัวผู้แตกแขนงสวยงาม",
+    "image_url": ""
+  },
+  {
+    "id": "A016",
+    "name_th": "นกกระเรียนพันธุ์ไทย",
+    "name_en": "Eastern Sarus Crane",
+    "scientific_name": "Antigone antigone",
+    "category": "สัตว์จำพวกนก",
+    "habitat": "หนอง บึง ทุ่งนา และพื้นที่ชุ่มน้ำ",
+    "description": "นกขนาดใหญ่ขายาว มีคอและหัวสีแดง พบในพื้นที่ชุ่มน้ำและทุ่งนา",
+    "image_url": ""
+  },
+  {
+    "id": "A017",
+    "name_th": "นกเจ้าฟ้าหญิงสิรินธร",
+    "name_en": "White-eyed River Martin",
+    "scientific_name": "Pseudochelidon sirintarae",
+    "category": "สัตว์จำพวกนก",
+    "habitat": "พื้นที่ชุ่มน้ำและบริเวณบึงบอระเพ็ด",
+    "description": "นกนางแอ่นหายากของไทย มีวงสีขาวรอบดวงตาและหางคู่กลางยาว",
+    "image_url": ""
+  },
+  {
+    "id": "A018",
+    "name_th": "นกชนหิน",
+    "name_en": "Helmeted Hornbill",
+    "scientific_name": "Rhinoplax vigil",
+    "category": "สัตว์จำพวกนก",
+    "habitat": "ป่าดิบชื้น",
+    "description": "นกเงือกขนาดใหญ่ มีโหนกแข็งเหนือปากเป็นลักษณะเด่น และเป็นสัตว์ป่าที่ถูกคุกคามอย่างมาก",
+    "image_url": ""
+  },
+  {
+    "id": "A019",
+    "name_th": "นกแต้วแล้วท้องดำ",
+    "name_en": "Gurney's Pitta",
+    "scientific_name": "Hydrornis gurneyi",
+    "category": "สัตว์จำพวกนก",
+    "habitat": "ป่าดิบชื้นบริเวณภาคใต้",
+    "description": "นกขนาดเล็กสีสวย ตัวผู้มีหัวสีดำและส่วนท้องสีดำ เป็นนกที่หายากมาก",
+    "image_url": ""
+  },
+  {
+    "id": "A020",
+    "name_th": "เต่ามะเฟือง",
+    "name_en": "Leatherback Sea Turtle",
+    "scientific_name": "Dermochelys coriacea",
+    "category": "สัตว์เลื้อยคลาน",
+    "habitat": "ทะเลเปิดและชายหาดสำหรับวางไข่",
+    "description": "เต่าทะเลขนาดใหญ่ที่สุดในโลก กระดองมีลักษณะเป็นหนังและมีสันตามยาวคล้ายผลมะเฟือง",
+    "image_url": ""
+  },
+  {
+    "id": "A021",
+    "name_th": "ปลาฉลามวาฬ",
+    "name_en": "Whale Shark",
+    "scientific_name": "Rhincodon typus",
+    "category": "สัตว์จำพวกปลา",
+    "habitat": "ทะเลเขตร้อนและทะเลเปิด",
+    "description": "ปลาที่มีขนาดใหญ่ที่สุดในโลก กินแพลงก์ตอนและสิ่งมีชีวิตขนาดเล็กโดยการกรองน้ำ",
+    "image_url": ""
+  }
+]

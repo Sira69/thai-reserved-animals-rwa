@@ -1,0 +1,10 @@
+node_modules/
+client/node_modules/
+client/dist/
+.firebase/
+.env
+.env.*
+firebase-debug.log*
+.runtimeconfig.json
+server/uploads/*
+!server/uploads/.gitkeep

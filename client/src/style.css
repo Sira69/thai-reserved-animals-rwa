@@ -1,0 +1,535 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f8f9;
+  color: #1c271e;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  height: 72px;
+  background: #fff;
+  border-bottom: 1px solid #e3e8e1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.logo {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a.active {
+  font-weight: 800;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 520px;
+  padding: 80px 8%;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 40, 22, 0.9),
+      rgba(17, 40, 22, 0.2)
+    ),
+    url("https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=1800")
+      center / cover;
+}
+
+.hero h1 {
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 1.03;
+  margin: 12px 0;
+}
+
+.hero p {
+  max-width: 620px;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero small,
+section > small {
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+  display: inline-block;
+  background: #285532;
+  color: #fff;
+  padding: 13px 20px;
+  border-radius: 10px;
+  border: 0;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 24px;
+}
+
+.title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+
+.title h1,
+.title h2 {
+  margin: 4px 0;
+}
+
+/* =========================
+   CARD GRID
+========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* =========================
+   ANIMAL CARD
+========================= */
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e7e0;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/*
+  รูปสัตว์เป็น 400x400
+  จึงใช้ aspect-ratio 1:1
+  เพื่อไม่ให้รูปยืดหรือบีบ
+*/
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  background: #f1f3ef;
+}
+
+.card > div {
+  padding: 17px;
+}
+
+.card span {
+  font-size: 12px;
+  font-weight: 800;
+  background: #eaf1e9;
+  padding: 5px 9px;
+  border-radius: 99px;
+}
+
+.card h3 {
+  margin: 12px 0 2px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+.muted {
+  color: #707970;
+}
+
+/* =========================
+   FILTER
+========================= */
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.filters input,
+.filters select,
+.panel input,
+.panel textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dce2d9;
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+}
+
+/* =========================
+   DETAIL
+========================= */
+
+.detail {
+  max-width: 900px;
+}
+
+/*
+  หน้ารายละเอียดก็รักษาสัดส่วนรูป
+  ไม่บังคับ height 440px
+*/
+
+.detail-img {
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: #f1f3ef;
+  border-radius: 20px;
+  margin: 20px auto;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.info > div,
+.panel {
+  background: #fff;
+  border: 1px solid #e2e7e0;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+.login {
+  max-width: 600px;
+}
+
+.login .panel form,
+.panel form {
+  display: grid;
+  gap: 10px;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+.admin {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 22px;
+}
+
+.admin .panel {
+  display: block;
+}
+
+.panel textarea {
+  resize: vertical;
+  margin-bottom: 9px;
+}
+
+.panel button,
+.upload {
+  border: 0;
+  background: #e8ede7;
+  padding: 10px 13px;
+  border-radius: 8px;
+  margin: 4px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.panel .btn {
+  background: #285532;
+  color: white;
+  width: 100%;
+  margin: 0;
+}
+
+.notice {
+  padding: 12px 16px;
+  background: #e7f2e8;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.error {
+  color: #b22;
+}
+
+/* =========================
+   ADMIN ROW
+========================= */
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid #edf0ec;
+}
+
+.row small {
+  display: block;
+  color: #777;
+}
+
+/* =========================
+   UPLOAD
+========================= */
+
+.upload {
+  display: block;
+  text-align: center;
+}
+
+.upload input {
+  display: none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #707970;
+  border-top: 1px solid #e2e7e0;
+}
+
+/* =========================
+   CSV IMPORT
+========================= */
+
+.csv-import {
+  background: #fff;
+  border: 1px solid #dfe6dd;
+  border-radius: 22px;
+  padding: 26px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 35px rgba(20, 45, 25, 0.05);
+}
+
+.dropzone {
+  border: 2px dashed #b8c7b7;
+  border-radius: 18px;
+  padding: 36px;
+  text-align: center;
+  background: #f8fbf7;
+}
+
+.csv-icon {
+  font-size: 48px;
+}
+
+.dropzone h2 {
+  margin: 8px 0;
+}
+
+.dropzone p {
+  color: #697269;
+  max-width: 650px;
+  margin: 8px auto 20px;
+  line-height: 1.6;
+}
+
+.file-btn {
+  display: inline-block;
+}
+
+.file-btn input {
+  display: none;
+}
+
+.import-btn {
+  margin-left: 8px;
+  background: #183d22;
+}
+
+.selected-file {
+  margin: 15px 0;
+  color: #425143;
+}
+
+.preview {
+  margin-top: 24px;
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid #e2e8e0;
+  border-radius: 12px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 700px;
+  background: #fff;
+}
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #edf0eb;
+  border-right: 1px solid #edf0eb;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.csv-help {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f1f5ef;
+  border-radius: 12px;
+}
+
+.csv-help code {
+  display: block;
+  margin-top: 8px;
+  white-space: normal;
+  line-height: 1.7;
+  color: #315238;
+}
+
+.success {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 9px;
+  background: #e7f4e8;
+  color: #23552d;
+}
+
+.error {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 9px;
+  background: #fdeaea;
+  color: #9a2c2c;
+}
+
+/* =========================
+   IMAGE UPLOAD PREVIEW
+========================= */
+
+.image-upload img {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 1 / 1;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 15px auto 0;
+  border-radius: 12px;
+  background: #f1f3ef;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+  .grid,
+  .admin,
+  .info,
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  header {
+    padding: 0 16px;
+  }
+
+  nav {
+    gap: 8px 10px;
+    font-size: 13px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero {
+    padding: 60px 24px;
+  }
+
+  .detail-img {
+    max-width: 100%;
+  }
+
+  .csv-import {
+    padding: 18px;
+  }
+
+  .dropzone {
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 560px) {
+  header {
+    height: auto;
+    min-height: 72px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 8px 14px;
+  }
+}

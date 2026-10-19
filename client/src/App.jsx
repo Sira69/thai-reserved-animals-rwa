@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { Home } from "./pages/HomePage";
 import { Animals } from "./pages/AnimalListPage";
@@ -6,9 +6,9 @@ import { Detail } from "./pages/AnimalDetailPage";
 import { Recommendation } from "./pages/RecommendationPage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { NewsPage } from "./pages/NewsPage";
-import { Favorites } from "./pages/FavoritesPage";
 import { MemberAuth } from "./pages/MemberAuthPage";
-import { Profile } from "./pages/ProfilePage";
+import { SearchHistory } from "./pages/SearchHistoryPage";
+import { Favorites } from "./pages/FavoritesPage";
 import { Admin } from "./pages/AdminAnimalsPage";
 import { AdminCategories } from "./pages/AdminCategoriesPage";
 
@@ -24,7 +24,8 @@ export default function App() {
     <Route path="/news" element={<NewsPage />} />
     <Route path="/login" element={<MemberAuth />} />
     <Route path="/register" element={<MemberAuth register />} />
-    <Route path="/profile" element={<Profile />} />
+    <Route path="/history" element={<SearchHistory />} />
+    <Route path="/profile" element={<Navigate to="/history" replace />} />
     <Route path="/admin" element={<Admin />} />
     <Route path="/admin/categories" element={<AdminCategories />} />
   </Routes></Layout>;

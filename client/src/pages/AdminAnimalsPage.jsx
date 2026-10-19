@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { get, ref, set, update, remove } from "firebase/database";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { signOut, onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../firebase";
 import { getAnimals, saveAnimal, deleteAnimal, getCategories } from "../services/animalService";
 import { parseAnimalCsv, parseCsvRows } from "../services/csvService";
@@ -14,12 +14,8 @@ import { CsvImporter } from "../components/features/CsvImporter";
 export function Admin() {
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
-
-  const [email, setEmail] =
-    useState("");
-
-  const [password, setPassword] =
-    useState("");
+  const [authReady, setAuthReady] = useState(false);
+  const [adminCheckComplete, setAdminCheckComplete] = useState(false);
 
   const [animals, setAnimals] =
     useState([]);
@@ -64,12 +60,14 @@ export function Admin() {
         auth,
         async (currentUser) => {
           setUser(currentUser);
+          setAdminCheckComplete(false);
 
           if (currentUser) {
             try {
               const adminSnapshot = await get(ref(db, `admins/${currentUser.uid}`));
               const allowed = adminSnapshot.val() === true;
               setIsAdmin(allowed);
+              setAdminCheckComplete(true);
               if (!allowed) {
                 setAnimals([]);
                 setMsg("บัญชีนี้ไม่มีสิทธิ์ผู้ดูแลระบบ");
@@ -81,6 +79,8 @@ export function Admin() {
               setAnimals(data);
             } catch (error) {
               console.error(error);
+              setIsAdmin(false);
+              setAdminCheckComplete(true);
 
               setMsg(
                 "โหลดข้อมูลไม่สำเร็จ: " +
@@ -90,89 +90,14 @@ export function Admin() {
           } else {
             setIsAdmin(false);
             setAnimals([]);
+            setAdminCheckComplete(true);
           }
+          setAuthReady(true);
         }
       );
 
     return unsubscribe;
   }, []);
-
-
-  /* =====================================================
-     LOGIN
-  ===================================================== */
-
-  async function login(e) {
-    e.preventDefault();
-
-    if (loading) return;
-
-    setMsg("");
-    setLoading(true);
-
-    try {
-      await signInWithEmailAndPassword(
-        auth,
-        email.trim(),
-        password
-      );
-
-      setMsg(
-        "เข้าสู่ระบบสำเร็จ"
-      );
-    } catch (error) {
-      console.error(
-        "LOGIN ERROR:",
-        error
-      );
-
-      switch (error.code) {
-        case "auth/invalid-credential":
-          setMsg(
-            "อีเมลหรือรหัสผ่านไม่ถูกต้อง"
-          );
-          break;
-
-        case "auth/invalid-email":
-          setMsg(
-            "รูปแบบอีเมลไม่ถูกต้อง"
-          );
-          break;
-
-        case "auth/user-not-found":
-          setMsg(
-            "ไม่พบผู้ใช้งานนี้ใน Firebase Authentication"
-          );
-          break;
-
-        case "auth/wrong-password":
-          setMsg(
-            "รหัสผ่านไม่ถูกต้อง"
-          );
-          break;
-
-        case "auth/too-many-requests":
-          setMsg(
-            "ลองเข้าสู่ระบบหลายครั้งเกินไป กรุณารอสักครู่"
-          );
-          break;
-
-        case "auth/network-request-failed":
-          setMsg(
-            "เชื่อมต่อ Firebase ไม่ได้"
-          );
-          break;
-
-        default:
-          setMsg(
-            "เข้าสู่ระบบไม่สำเร็จ: " +
-              error.message
-          );
-      }
-    } finally {
-      setLoading(false);
-    }
-  }
 
 
   /* =====================================================
@@ -185,6 +110,7 @@ export function Admin() {
 
       setUser(null);
       setIsAdmin(false);
+      setAdminCheckComplete(true);
       setAnimals([]);
 
       resetForm();
@@ -618,65 +544,18 @@ export function Admin() {
      LOGIN PAGE
   ===================================================== */
 
+  if (!authReady || (user && !adminCheckComplete)) {
+    return <section className="section"><div className="panel"><p>กำลังตรวจสอบบัญชีและสิทธิ์แอดมิน...</p></div></section>;
+  }
+
   if (!user) {
     return (
       <section className="section login">
         <div className="panel">
           <small>ADMIN</small>
-
-          <h1>
-            เข้าสู่ระบบหลังบ้าน
-          </h1>
-
-          <form
-            onSubmit={login}
-          >
-            <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) =>
-                setEmail(
-                  e.target.value
-                )
-              }
-              required
-            />
-
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) =>
-                setPassword(
-                  e.target.value
-                )
-              }
-              required
-            />
-
-            <button
-              className="btn"
-              type="submit"
-              disabled={loading}
-            >
-              {loading
-                ? "กำลังเข้าสู่ระบบ..."
-                : "เข้าสู่ระบบ"}
-            </button>
-          </form>
-
-          {msg && (
-            <p
-              className={
-                msg.includes("สำเร็จ")
-                  ? "success"
-                  : "error"
-              }
-            >
-              {msg}
-            </p>
-          )}
+          <h1>เข้าสู่ระบบเพื่อเปิดหลังบ้าน</h1>
+          <p>ใช้หน้าเข้าสู่ระบบเดียวกับสมาชิก ระบบจะตรวจสอบสิทธิ์แอดมินให้อัตโนมัติ</p>
+          <Link className="btn" to="/login">เข้าสู่ระบบ</Link>
         </div>
       </section>
     );

@@ -62,7 +62,7 @@ export function Home() {
 
       <section className="section">
         <div className="title">
-          <h2>สัตว์ในฐานข้อมูล</h2>
+          <h2>สัตว์สงวนที่แนะนำ</h2>
 
           <Link to="/animals">
             ดูทั้งหมด →

@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { get, ref, set, update, remove } from "firebase/database";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { Link } from "react-router-dom";
+import { get, ref } from "firebase/database";
+import { onAuthStateChanged } from "firebase/auth";
 import { db, auth } from "../firebase";
-import { getAnimals, saveAnimal, deleteAnimal, getCategories } from "../services/animalService";
-import { parseAnimalCsv, parseCsvRows } from "../services/csvService";
-import { imageToBase64 } from "../services/imageService";
-import { FALLBACK } from "../constants";
+import { getAnimals } from "../services/animalService";
 import { Card } from "../components/features/AnimalCard";
-import { FavoriteButton } from "../components/features/FavoriteButton";
-import { CsvImporter } from "../components/features/CsvImporter";
 
 export function Favorites() {
   const [user, setUser] = useState(null);

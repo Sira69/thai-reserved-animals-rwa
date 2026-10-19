@@ -34,5 +34,19 @@ export function FavoriteButton({ animal }) {
     }
   }
 
-  return <div><button type="button" onClick={toggleFavorite}>{saved ? "♥ นำออกจากรายการโปรด" : "♡ บันทึกรายการโปรด"}</button>{message && <small role="status"> {message}</small>}</div>;
+  return (
+    <>
+      <button
+        className={`favorite-button${saved ? " is-saved" : ""}`}
+        type="button"
+        onClick={toggleFavorite}
+        aria-label={saved ? "นำออกจากรายการโปรด" : "บันทึกรายการโปรด"}
+        aria-pressed={saved}
+        title={saved ? "นำออกจากรายการโปรด" : "บันทึกรายการโปรด"}
+      >
+        {saved ? "♥" : "♡"}
+      </button>
+      {message && <span className="sr-only" role="status">{message}</span>}
+    </>
+  );
 }

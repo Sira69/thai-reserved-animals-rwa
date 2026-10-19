@@ -1,5 +1,6 @@
 import { get, ref, set, remove } from "firebase/database";
 import { db } from "../firebase";
+import { RECOMMENDED_ANIMAL_INFO } from "../data/recommendedAnimalInfo";
 
 export async function getAnimals() {
   const snapshot = await get(ref(db, "animals"));
@@ -8,9 +9,22 @@ export async function getAnimals() {
   return Object.entries(records)
     .map(([key, animal]) => {
       const animalId = animal.id || key;
+      const curated = RECOMMENDED_ANIMAL_INFO[animalId];
+      const mergedAnimal = { ...animal };
+
+      if (curated) {
+        if (curated.name_en && (!animal.name_en || animal.name_en === curated.legacyNameEn)) mergedAnimal.name_en = curated.name_en;
+        if (!animal.habitat || animal.habitat === curated.legacyHabitat) mergedAnimal.habitat = curated.habitat;
+        if (!animal.description || animal.description === curated.legacyDescription) mergedAnimal.description = curated.description;
+        if (!animal.food) mergedAnimal.food = curated.food;
+        if (!animal.behavior) mergedAnimal.behavior = curated.behavior;
+        mergedAnimal.info_source = curated.info_source;
+        mergedAnimal.is_recommended = curated.is_recommended || Boolean(animal.is_recommended);
+      }
+
       return {
         databaseKey: key,
-        ...animal,
+        ...mergedAnimal,
         id: animalId,
         image_url:
           animal.image_url || `/images/${animalId}_thumbnail.webp`,

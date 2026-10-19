@@ -8,7 +8,6 @@ import { parseAnimalCsv, parseCsvRows } from "../services/csvService";
 import { imageToBase64 } from "../services/imageService";
 import { FALLBACK } from "../constants";
 import { Card } from "../components/features/AnimalCard";
-import { FavoriteButton } from "../components/features/FavoriteButton";
 import { CsvImporter } from "../components/features/CsvImporter";
 
 export function Detail() {
@@ -88,8 +87,6 @@ export function Detail() {
           {animal.scientific_name}
         </i>
       </p>
-
-      <FavoriteButton animal={animal} />
 
       <div className="info">
         <div>

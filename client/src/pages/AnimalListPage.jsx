@@ -13,7 +13,7 @@ import { CsvImporter } from "../components/features/CsvImporter";
 
 export function Animals() {
   const [data, setData] = useState([]);
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(() => new URLSearchParams(window.location.search).get("q") || "");
   const [cat, setCat] = useState(() => new URLSearchParams(window.location.search).get("category") || "");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

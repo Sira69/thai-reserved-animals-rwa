@@ -13,14 +13,26 @@ import { CsvImporter } from "../components/features/CsvImporter";
 
 export function MemberAuth({ register = false }) {
   const navigate = useNavigate();
+  const [activeUser, setActiveUser] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => onAuthStateChanged(auth, (currentUser) => {
+    setActiveUser(currentUser);
+    setAuthReady(true);
+  }), []);
+
   async function submit(event) {
     event.preventDefault();
+    if (auth.currentUser) {
+      setActiveUser(auth.currentUser);
+      setMessage("ออกจากระบบบัญชีปัจจุบันก่อนเปลี่ยนบัญชี");
+      return;
+    }
     setLoading(true); setMessage("");
     try {
       if (register) {
@@ -29,9 +41,14 @@ export function MemberAuth({ register = false }) {
           name: name.trim(), email: credential.user.email, role: "member", createdAt: Date.now(),
         });
       } else {
-        await signInWithEmailAndPassword(auth, email.trim(), password);
+        const credential = await signInWithEmailAndPassword(auth, email.trim(), password);
+        const adminSnapshot = await get(ref(db, `admins/${credential.user.uid}`));
+        if (adminSnapshot.val() === true) {
+          navigate("/admin");
+          return;
+        }
       }
-      navigate("/profile");
+      navigate("/animals");
     } catch (error) {
       console.error(error);
       setMessage(error.code === "auth/email-already-in-use" ? "อีเมลนี้มีบัญชีแล้ว"
@@ -40,6 +57,37 @@ export function MemberAuth({ register = false }) {
             : `ดำเนินการไม่สำเร็จ: ${error.message}`);
     } finally { setLoading(false); }
   }
+
+  async function logout() {
+    setLoading(true);
+    setMessage("");
+    try {
+      await signOut(auth);
+    } catch (error) {
+      console.error(error);
+      setMessage(`ออกจากระบบไม่สำเร็จ: ${error.message}`);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  if (!authReady) return <section className="section login"><div className="panel"><p>กำลังตรวจสอบสถานะบัญชี...</p></div></section>;
+
+  if (activeUser) return (
+    <section className="section login">
+      <div className="panel">
+        <small>MEMBER</small>
+        <h1>เข้าสู่ระบบอยู่แล้ว</h1>
+        <p>บัญชีปัจจุบัน: {activeUser.email}</p>
+        <p>ออกจากระบบก่อน จึงจะเข้าสู่ระบบหรือสมัครบัญชีอื่นได้</p>
+        <button className="btn" onClick={logout} disabled={loading}>
+          {loading ? "กำลังออกจากระบบ..." : "ออกจากระบบ"}
+        </button>
+        {message && <p className="error">{message}</p>}
+        <p><Link to="/animals">กลับไปหน้าสัตว์สงวน</Link></p>
+      </div>
+    </section>
+  );
 
   return <section className="section login"><div className="panel"><small>MEMBER</small><h1>{register ? "สมัครสมาชิก" : "เข้าสู่ระบบ"}</h1>
     <form onSubmit={submit}>{register && <input placeholder="ชื่อ" value={name} onChange={(event) => setName(event.target.value)} required />}

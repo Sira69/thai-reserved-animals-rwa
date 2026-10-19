@@ -6,10 +6,10 @@
 
 | ขั้น | สถานะ | ผลตรวจ |
 |---|---|---|
-| 1. React/Vite project | เสร็จบางส่วน | React + Vite ทำงานและ build สำเร็จแล้ว แต่โปรเจ็กต์ยังไม่มี Git repository, Git commits หรือ GitHub URL และโครงสร้างหน้า/คอมโพเนนต์ยังรวมไว้ใน `client/src/main.jsx` |
-| 2. Firebase | เสร็จบางส่วน | เชื่อม Realtime Database, นำเข้าข้อมูลสัตว์ 21 รายการและ 4 หมวดหมู่, ตั้ง rules, เปิด Email/Password และ deploy Hosting แล้ว ต้องตรวจสิทธิ์ admin และยืนยันการสมัคร/เข้าสู่ระบบจริง |
+| 1. React/Vite project | เสร็จบางส่วน | React + Vite build ผ่านใน PowerShell ของผู้ใช้; สร้าง Git repository และ initial commit `67a6085` แล้ว แต่ GitHub URL ยังไม่มี และโครงสร้างหน้า/คอมโพเนนต์ยังรวมใน `client/src/main.jsx` |
+| 2. Firebase | เสร็จบางส่วน | Realtime Database มีสัตว์ 21 รายการและ 4 หมวดหมู่, ตั้ง rules, เปิด Email/Password และ deploy Hosting แล้ว; ยังต้องทดสอบสมาชิกและสิทธิ์ admin |
 | 3. UI และฟังก์ชัน | มีฟังก์ชันหลัก | มี Home, Search/List, Detail, Recommendation, Favorites, Profile, Login/Register, Categories, News, Admin Animals และ Admin Categories; รูปสัตว์ 21 รูปแสดงตามรหัสแล้ว |
-| 4. Testing | เริ่มแล้ว | ผ่านการทดสอบเส้นทาง/ค้นหา/กรองบางกรณีตามรายการด้านล่าง; ยังต้องทดสอบ responsive, การสมัคร/เข้าสู่ระบบ, สิทธิ์และ CRUD ของ admin, และ CSV ที่ถูกต้อง/ไม่ถูกต้อง |
+| 4. Testing | เริ่มแล้ว | ทดสอบหน้าเว็บ/ค้นหา/กรองแล้ว และเพิ่ม unit tests ตัวนำเข้า CSV ผ่าน 6/6; ยังต้องทดสอบ responsive, สมาชิก, CRUD/admin และนำเข้า CSV ผ่านหน้าเว็บ |
 | 5. Deploy | เสร็จ | Production build และ Firebase Hosting deploy สำเร็จ URL: https://thai-rwa-fd589.web.app |
 | 6. เอกสารส่งมอบ | ยังไม่เสร็จ | ยังไม่มีรายงาน PDF; มี JSON และ README แต่ README เพิ่งแก้ให้ตรงกับ Firebase project ปัจจุบัน |
 | 7. นำเสนอ | ยังไม่เสร็จ | ยังไม่มีสไลด์และวิดีโอสาธิต |
@@ -26,7 +26,8 @@
 | กรองคำแนะนำ | ผ่าน | เลือก “สัตว์จำพวกปลา” แล้วเหลือ 1 รายการ |
 | หมวดหมู่ | ผ่าน | แสดง 4 หมวดหมู่ |
 | ข่าวอนุรักษ์ | สถานะว่าง | หน้าแสดงข้อความว่าไม่มีข่าวในฐานข้อมูล; ยังไม่มีข้อมูลข่าวให้ทดสอบการ์ดข่าว |
-| Build และ Hosting | ผ่าน | Vite build สำเร็จ และ Firebase CLI รายงาน deploy สำเร็จ พบไฟล์ใน Hosting 24 ไฟล์ |
+| CSV parser | ผ่าน | `npm test` ผ่าน 6/6: CSV มี comma/quote, ค่าเริ่มต้น, เก็บข้อมูลเดิม, แถวผิด, ID ซ้ำ และ quote ปิดไม่ครบ |
+| Build และ Hosting | ผ่านก่อนแก้รอบล่าสุด | Vite build และ deploy 24 ไฟล์สำเร็จแล้ว; การแก้ล่าสุดต้อง build/deploy ซ้ำจาก PowerShell ผู้ใช้ เพราะ Codex shell ติด EPERM เมื่อ Vite อ่านไฟล์บน D: |
 
 ## งานที่ยังต้องทำ
 
@@ -35,6 +36,7 @@
 3. ทดสอบหน้าเว็บที่ขนาดมือถือและแท็บเล็ต พร้อมบันทึกผล
 4. ตรวจและเติมข้อมูลอาหาร/พฤติกรรมจากแหล่งอ้างอิงที่เชื่อถือได้ (ฟิลด์เหล่านี้ว่างในข้อมูลต้นทาง); ข้อมูลสถานะและชื่ออังกฤษของหมวดหมู่มีค่า fallback ในโค้ดและไฟล์ JSON แล้ว
 5. ทบทวนโครงสร้างโปรเจ็กต์ให้ตรงกับ component/folder plan ที่ส่งใน Assignment 5 หรือบันทึกเหตุผลของโครงสร้างที่ใช้
-6. สร้าง Git repository และ commits; สร้าง/ระบุ GitHub repository และ URL (ต้องเลือก public/private ก่อนเผยแพร่ source code)
+6. สร้าง GitHub repository และ URL; local repo กับ initial commit ทำแล้ว, ผู้ใช้เลือก Public แล้ว แต่หน้า GitHub ต้องล็อกอินก่อนสร้าง repository และไม่มี GitHub CLI ในเครื่อง
 7. จัดทำรายงาน PDF, slide นำเสนอ และวิดีโอสาธิต
-8. หลังการแก้ล่าสุด ให้รัน `npm run build` และ `firebase deploy --only hosting` อีกครั้ง แล้วทดสอบ URL สาธารณะซ้ำ
+8. หลังการแก้ล่าสุด ให้รัน `npm run build`, `npm test` และ `firebase deploy --only hosting` จาก PowerShell แล้วทดสอบ URL สาธารณะซ้ำ
+

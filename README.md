@@ -58,3 +58,6 @@ firebase deploy
 - กฎ `admins` ต้องตั้ง UID ใน Firebase Console หลังสร้างบัญชีผู้ดูแล ห้ามเปิดสิทธิ์เขียนทั้งฐานข้อมูลแบบสาธารณะ
 
 เว็บที่ Deploy แล้ว: https://thai-rwa-fd589.web.app
+## ทดสอบ
+
+รัน unit tests ของตัวนำเข้า CSV ด้วย `npm test` ก่อน deploy

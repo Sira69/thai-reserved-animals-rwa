@@ -8,3 +8,4 @@ firebase-debug.log*
 .runtimeconfig.json
 server/uploads/*
 !server/uploads/.gitkeep
+output/pdf/

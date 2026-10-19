@@ -1,0 +1,31 @@
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "./components/layout/Layout";
+import { Home } from "./pages/HomePage";
+import { Animals } from "./pages/AnimalListPage";
+import { Detail } from "./pages/AnimalDetailPage";
+import { Recommendation } from "./pages/RecommendationPage";
+import { CategoryPage } from "./pages/CategoryPage";
+import { NewsPage } from "./pages/NewsPage";
+import { Favorites } from "./pages/FavoritesPage";
+import { MemberAuth } from "./pages/MemberAuthPage";
+import { Profile } from "./pages/ProfilePage";
+import { Admin } from "./pages/AdminAnimalsPage";
+import { AdminCategories } from "./pages/AdminCategoriesPage";
+
+export default function App() {
+  return <Layout><Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/animals" element={<Animals />} />
+    <Route path="/animals/:id" element={<Detail />} />
+    <Route path="/recommendation" element={<Recommendation />} />
+    <Route path="/favorites" element={<Favorites />} />
+    <Route path="/categories" element={<CategoryPage />} />
+    <Route path="/search" element={<Animals />} />
+    <Route path="/news" element={<NewsPage />} />
+    <Route path="/login" element={<MemberAuth />} />
+    <Route path="/register" element={<MemberAuth register />} />
+    <Route path="/profile" element={<Profile />} />
+    <Route path="/admin" element={<Admin />} />
+    <Route path="/admin/categories" element={<AdminCategories />} />
+  </Routes></Layout>;
+}

@@ -243,7 +243,7 @@ section > small {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
@@ -260,7 +260,8 @@ section > small {
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: none;
+  box-shadow: 0 8px 24px rgba(20, 45, 25, 0.09);
 }
 
 /*
@@ -269,7 +270,27 @@ section > small {
   เพื่อไม่ให้รูปยืดหรือบีบ
 */
 
-.card img {
+.animal-card-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #f1f3ef;
+}
+
+.card .animal-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  background: #f1f3ef;
+}
+
+.card > div > img {
   width: 100%;
   aspect-ratio: 1 / 1;
   height: auto;
@@ -701,11 +722,18 @@ td {
 
 @media (max-width: 800px) {
 
-  .grid,
   .admin,
-  .info,
   .filters {
     grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   header {
@@ -737,18 +765,76 @@ td {
 }
 
 @media (max-width: 560px) {
-  header {
-    height: auto;
-    min-height: 72px;
+  .section {
+    padding: 36px 16px;
+  }
+
+  .grid,
+  .info {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .title {
     align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
-    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .hero {
+    min-height: 420px;
+    padding: 48px 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 11vw, 54px);
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  header {
+    height: 64px;
+    min-height: 64px;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0 12px;
   }
 
   nav {
-    width: 100%;
-    justify-content: flex-start;
-    gap: 8px 14px;
+    width: auto;
+    margin-left: auto;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  nav a {
+    white-space: nowrap;
+  }
+
+  .profile-icon-link {
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 360px) {
+  header {
+    padding: 0 8px;
+    gap: 6px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  nav {
+    gap: 4px;
+    font-size: 11px;
   }
 }

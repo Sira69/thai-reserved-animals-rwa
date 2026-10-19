@@ -6,7 +6,7 @@ export function Card({ a }) {
   return (
     <article className="card animal-card">
       <Link to={"/animals/" + a.id} className="animal-card-image">
-        <img src={a.image_url || FALLBACK} alt={a.name_th} />
+        <img src={a.image_url || FALLBACK} alt={a.name_th} loading="lazy" decoding="async" />
       </Link>
 
       <div className="animal-card-content">

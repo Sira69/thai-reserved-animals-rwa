@@ -60,6 +60,15 @@ export function Home() {
         </div>
       </section>
 
+      <section className="section survey-promo">
+        <div>
+          <small>YOUR FEEDBACK MATTERS</small>
+          <h2>ช่วยเราพัฒนาเว็บไซต์ RWA</h2>
+          <p>แบ่งปันความพึงพอใจต่อการใช้งานผ่านแบบสอบถาม</p>
+        </div>
+        <Link className="btn" to="/survey">ตอบแบบสอบถาม</Link>
+      </section>
+
       <section className="section">
         <div className="title">
           <h2>สัตว์สงวนที่แนะนำ</h2>

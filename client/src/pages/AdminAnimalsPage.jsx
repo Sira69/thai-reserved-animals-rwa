@@ -586,6 +586,7 @@ export function Admin() {
           <p>
             {user.email}
           </p>
+          <p><Link to="/admin/survey">ตรวจดูผลแบบสอบถาม →</Link></p>
         </div>
 
         <button

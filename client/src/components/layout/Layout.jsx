@@ -70,6 +70,7 @@ export function Layout({ children }) {
         <nav>
           <NavLink to="/">หน้าแรก</NavLink>
           <NavLink to="/animals">สัตว์สงวน</NavLink>
+          <NavLink to="/survey">แบบสอบถาม</NavLink>
           {authReady && (user ? (
             <button
               type="button"
@@ -125,6 +126,11 @@ export function Layout({ children }) {
               {isAdmin && (
                 <Link className="profile-menu-link" to="/admin" onClick={() => setProfileMenuOpen(false)}>
                   จัดการข้อมูล
+                </Link>
+              )}
+              {isAdmin && (
+                <Link className="profile-menu-link" to="/admin/survey" onClick={() => setProfileMenuOpen(false)}>
+                  ผลแบบสอบถาม
                 </Link>
               )}
               <button type="button" className="profile-menu-logout" onClick={handleLogout}>

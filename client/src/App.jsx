@@ -11,6 +11,8 @@ import { SearchHistory } from "./pages/SearchHistoryPage";
 import { Favorites } from "./pages/FavoritesPage";
 import { Admin } from "./pages/AdminAnimalsPage";
 import { AdminCategories } from "./pages/AdminCategoriesPage";
+import { SurveyPage } from "./pages/SurveyPage";
+import { AdminSurveyPage } from "./pages/AdminSurveyPage";
 
 export default function App() {
   return <Layout><Routes>
@@ -22,11 +24,13 @@ export default function App() {
     <Route path="/categories" element={<CategoryPage />} />
     <Route path="/search" element={<Animals />} />
     <Route path="/news" element={<NewsPage />} />
+    <Route path="/survey" element={<SurveyPage />} />
     <Route path="/login" element={<MemberAuth />} />
     <Route path="/register" element={<MemberAuth register />} />
     <Route path="/history" element={<SearchHistory />} />
     <Route path="/profile" element={<Navigate to="/history" replace />} />
     <Route path="/admin" element={<Admin />} />
     <Route path="/admin/categories" element={<AdminCategories />} />
+    <Route path="/admin/survey" element={<AdminSurveyPage />} />
   </Routes></Layout>;
 }
